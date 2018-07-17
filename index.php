@@ -12,7 +12,9 @@ $app->config('debug', true);
 $app->get('/', function() {
     $page = new Page();
 
-    $page->setTpl("index");
+    $teste = 'luan';
+
+    $page->setTpl("index", ['nome' => $teste]);
 
 });
 
