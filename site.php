@@ -1,14 +1,15 @@
 <?php
 
+use Hcode\Model\Product;
 use \Hcode\Page;
 use \Hcode\Model\Category;
 
 $app->get('/', function() {
     $page = new Page();
 
-    $teste = 'luan';
+    $products = Product::listAll();
 
-    $page->setTpl("index", ['nome' => $teste]);
+    $page->setTpl("index", ['products' => Product::checklist($products)]);
 
 });
 
@@ -24,3 +25,4 @@ $app->get("/categories/:idcategory", function ($idcategory) {
         "products" => array()
     ));
 });
+
